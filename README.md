@@ -1,3 +1,24 @@
+```shell
+
+# 拉取到本地并重新编译
+make all WHAT=cmd/kubeadm GOFLAGS=-v
+
+# 上传编译后的文件到服务器
+scp _output/bin/kubeadm xx@ip:/home/xx
+
+# 登录服务器，替换原有kubeadm
+cp -f ./kubeadm /usr/bin/kubeadm
+
+# 重新生成证书
+kubeadm alpha certs renew all
+
+# 查看证书有效期
+kubeadm  certs check-expiration
+
+```
+
+---
+
 # Kubernetes (K8s)
 
 [![GoPkg Widget]][GoPkg] [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/569/badge)](https://bestpractices.coreinfrastructure.org/projects/569)
