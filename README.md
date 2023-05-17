@@ -18,7 +18,7 @@ cp -f ./kubeadm /usr/bin/kubeadm
 kubeadm alpha certs renew all
 
 # 查看证书有效期
-kubeadm  certs check-expiration
+kubeadm certs check-expiration
 
 ```
 
