@@ -6,7 +6,12 @@ make all WHAT=cmd/kubeadm GOFLAGS=-v
 # 上传编译后的文件到服务器
 scp _output/bin/kubeadm xx@ip:/home/xx
 
-# 登录服务器，替换原有kubeadm
+# 登录服务器
+# 先备份
+cp /usr/bin/kubeadm /usr/bin/kubeadm.bak
+cp -rf /etc/kubernetes/pki /etc/kubernetes/pki.bak
+
+# 替换原有kubeadm
 cp -f ./kubeadm /usr/bin/kubeadm
 
 # 重新生成证书
